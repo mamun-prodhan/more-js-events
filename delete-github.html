@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Delete</title>
+</head>
+<body>
+    <h1 id="heading">Delete Me Now...OR...I will kill your files</h1>
+    <input id="input-text" type="text">
+    <button id="btn-delete" disabled>Delete</button>
+    <script>
+        document.getElementById('input-text').addEventListener('keyup', function(event){
+            const inputValue = event.target.value;
+            const btnDelete = document.getElementById('btn-delete');
+            if(inputValue === 'delete'){
+                btnDelete.removeAttribute('disabled');
+            }
+            else{
+                btnDelete.setAttribute('disabled', true);
+            }
+        })
+        document.getElementById('btn-delete').addEventListener('click', function(){
+            const heading = document.getElementById('heading');
+            heading.style.display = 'none';
+            document.getElementById('input-text').value = '';
+        })
+    </script>
+</body>
+</html>
